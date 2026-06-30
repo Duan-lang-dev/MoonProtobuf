@@ -8,7 +8,7 @@
 | **GitHub 仓库** | https://github.com/Duan-lang-dev/MoonProtobuf |
 | **GitLink 仓库** | https://gitlink.org.cn/Duan525/moonproto |
 | **项目方向** | MoonBit 基础库 / 序列化协议基础设施 |
-| **是否为移植项目** | 是（参考 Go protowire、Rust prost::encoding 设计） |
+| **是否为移植项目** | 否（原创实现，基于 Protobuf wire format 公开规范，参考 Go protowire、Rust prost 实现模式） |
 | **许可证** | MIT |
 
 ## 项目简介
