@@ -1,10 +1,10 @@
-# MoonProto 项目申报书
+# MoonProtobuf 项目申报书
 
 ## 基本信息
 
 | 项目 | 内容 |
 |------|------|
-| **项目名称** | MoonProto：Protocol Buffers 运行时编码解码库 |
+| **项目名称** | MoonProtobuf：Protocol Buffers 运行时编码解码库 |
 | **GitHub 仓库** | https://github.com/Duan-lang-dev/MoonProtobuf |
 | **GitLink 仓库** | https://gitlink.org.cn/Duan525/moonproto |
 | **项目方向** | MoonBit 基础库 / 序列化协议基础设施 |
@@ -13,7 +13,7 @@
 
 ## 项目简介
 
-MoonProto 是一个**纯 MoonBit 实现**的 Protocol Buffers 运行时编码解码库，支持完整的 protobuf wire format。项目面向需要在 MoonBit 生态中进行高效二进制序列化的开发者，提供 varint/zigzag 编解码、四种 wire type（Varint/Fixed64/Length-delimited/Fixed32）的读写、Builder 模式高级 Encoder、位置追踪高级 Decoder、packed repeated 字段以及简单的 .proto 文件解析器。
+MoonProtobuf 是一个**纯 MoonBit 实现**的 Protocol Buffers 运行时编码解码库，支持完整的 protobuf wire format。项目面向需要在 MoonBit 生态中进行高效二进制序列化的开发者，提供 varint/zigzag 编解码、四种 wire type（Varint/Fixed64/Length-delimited/Fixed32）的读写、Builder 模式高级 Encoder、位置追踪高级 Decoder、packed repeated 字段以及 .proto 文件解析器。
 
 MoonBit 生态中尚无可用的 protobuf 运行时库。Protobuf 作为 Google 内部及业界广泛使用的序列化协议，其 wire format 的高效性（varint 压缩、tag-value 可扩展性）使其成为微服务通信和数据持久化的首选方案。本项目填补这一生态空白。
 
@@ -43,7 +43,7 @@ MoonBit 生态中尚无可用的 protobuf 运行时库。Protobuf 作为 Google 
 
 - 80 个单元测试全部通过
 - GitHub Actions CI 持续集成（check + test + build）
-- 完整 README、15 次有效提交
+- 完整 README、20 次有效提交
 
 ## 差异化价值
 
@@ -74,7 +74,7 @@ MoonProto 在 MoonBit 生态中无直接竞品，填补了 protobuf 序列化基
 | 文档（README/CI/Config） | — | — | — |
 | **合计** | **1,216** | **1,062** | **80** |
 
-项目总计约 **2,279 行**（源码 1,216 行 + 测试 1,062 行），80 个测试全部通过，15 次有效提交。
+项目总计约 **2,279 行**（源码 1,216 行 + 测试 1,062 行），80 个测试全部通过，20 次有效提交。
 
 ## 实现计划
 

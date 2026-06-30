@@ -1,4 +1,4 @@
-# MoonProto — Competition Acceptance Checklist
+# MoonProtobuf — Competition Acceptance Checklist
 
 ## Core Features
 
@@ -63,7 +63,7 @@
 - [x] CI configuration (`.github/workflows/ci.yml`)
 - [x] README with installation, quick start, and API reference
 - [x] MIT License
-- [x] 15 meaningful commits
+- [x] 20 meaningful commits
 
 ## Code Statistics
 - varint: 87 lines source + 111 lines test (16 tests)
@@ -78,6 +78,6 @@
 
 ## Competition Submission
 - [x] GitHub repository created
-- [ ] GitLink mirror pushed
-- [x] 15 meaningful commits
-- [ ] Project proposal PDF generated
+- [x] GitLink mirror pushed
+- [x] 20 meaningful commits
+- [x] Project proposal PDF generated
