@@ -5,8 +5,8 @@
 | 项目 | 内容 |
 |------|------|
 | **项目名称** | MoonProto：Protocol Buffers 运行时编码解码库 |
-| **GitHub 仓库** | https://github.com/Duan525/moonproto |
-| **GitLink 仓库** | 待创建 |
+| **GitHub 仓库** | https://github.com/Duan-lang-dev/MoonProtobuf |
+| **GitLink 仓库** | https://gitlink.org.cn/Duan525/moonproto |
 | **项目方向** | MoonBit 基础库 / 序列化协议基础设施 |
 | **是否为移植项目** | 是（参考 Go protowire、Rust prost::encoding 设计） |
 | **许可证** | MIT |
