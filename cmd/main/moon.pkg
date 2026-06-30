@@ -1,0 +1,7 @@
+import {
+  "Duan525/moonproto",
+}
+
+options(
+  "is-main": true,
+)
