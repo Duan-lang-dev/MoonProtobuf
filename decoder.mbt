@@ -278,7 +278,11 @@ fn Decoder::read_length_delim_len(self : Decoder) -> Int? {
     None => None
     Some((value, consumed)) => {
       self.pos += consumed
-      Some(value.to_int())
+      let length = value.to_int()
+      if length < 0 {
+        return None
+      }
+      Some(length)
     }
   }
 }
