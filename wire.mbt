@@ -55,7 +55,7 @@ pub fn write_double(buf : Buffer, value : Double) -> Unit {
 /// Read a fixed32 value from bytes at the given position.
 /// Returns (value, new_position) or None if out of bounds.
 pub fn read_fixed32(bytes : Bytes, pos : Int) -> (UInt, Int)? {
-  if pos + 4 > bytes.length() {
+  if pos < 0 || pos + 4 > bytes.length() {
     return None
   }
   let value = bytes[pos].to_uint()
@@ -68,7 +68,7 @@ pub fn read_fixed32(bytes : Bytes, pos : Int) -> (UInt, Int)? {
 /// Read a fixed64 value from bytes at the given position.
 /// Returns (value, new_position) or None if out of bounds.
 pub fn read_fixed64(bytes : Bytes, pos : Int) -> (UInt64, Int)? {
-  if pos + 8 > bytes.length() {
+  if pos < 0 || pos + 8 > bytes.length() {
     return None
   }
   let mut value : UInt64 = 0

@@ -17,6 +17,9 @@ pub fn encode_varint(buf : Buffer, value : UInt64) -> Unit {
 /// Decode a protobuf varint from bytes at a given position.
 /// Returns `(value, bytes_consumed)` or `None` if the varint is truncated.
 pub fn decode_varint(bytes : Bytes, pos : Int) -> (UInt64, Int)? {
+  if pos < 0 {
+    return None
+  }
   let mut result : UInt64 = 0
   let mut shift = 0
   // Max bytes needed for a 64-bit varint is ceil(64/7) = 10
