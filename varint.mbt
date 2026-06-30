@@ -19,6 +19,7 @@ pub fn encode_varint(buf : Buffer, value : UInt64) -> Unit {
 pub fn decode_varint(bytes : Bytes, pos : Int) -> (UInt64, Int)? {
   let mut result : UInt64 = 0
   let mut shift = 0
+  // Max bytes needed for a 64-bit varint is ceil(64/7) = 10
   for i in 0..<10 {
     if pos + i >= bytes.length() {
       return None
@@ -62,4 +63,22 @@ pub fn encode_sint32(buf : Buffer, value : Int) -> Unit {
 /// Encode a signed 64-bit integer as a zigzag-encoded varint.
 pub fn encode_sint64(buf : Buffer, value : Int64) -> Unit {
   encode_varint(buf, encode_zigzag64(value))
+}
+
+/// Decode a zigzag-encoded signed 32-bit varint from bytes at a given position.
+/// Returns `(value, bytes_consumed)` or `None` if the varint is truncated.
+pub fn decode_sint32(bytes : Bytes, pos : Int) -> (Int, Int)? {
+  match decode_varint(bytes, pos) {
+    None => None
+    Some((value, consumed)) => Some((decode_zigzag32(value.to_uint()), consumed))
+  }
+}
+
+/// Decode a zigzag-encoded signed 64-bit varint from bytes at a given position.
+/// Returns `(value, bytes_consumed)` or `None` if the varint is truncated.
+pub fn decode_sint64(bytes : Bytes, pos : Int) -> (Int64, Int)? {
+  match decode_varint(bytes, pos) {
+    None => None
+    Some((value, consumed)) => Some((decode_zigzag64(value), consumed))
+  }
 }

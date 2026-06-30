@@ -68,6 +68,38 @@ test "zigzag64 signed" {
   assert_eq(@moonproto.decode_zigzag64(2UL), 1L)
 }
 
+test "encode_sint32 roundtrip" {
+  for value in [0, 1, -1, 64, -64, 127, -127, 128, -128, 2147483647, -2147483648] {
+    let buf = Buffer()
+    @moonproto.encode_sint32(buf, value)
+    let bytes = buf.to_bytes()
+    let r = @moonproto.decode_sint32(bytes, 0)
+    assert_eq(r, Some((value, bytes.length())))
+  }
+}
+
+test "encode_sint64 roundtrip" {
+  for value in [0L, 1L, -1L, 64L, -64L, 127L, -127L, 128L, -128L, 9223372036854775807L, -9223372036854775808L] {
+    let buf = Buffer()
+    @moonproto.encode_sint64(buf, value)
+    let bytes = buf.to_bytes()
+    let r = @moonproto.decode_sint64(bytes, 0)
+    assert_eq(r, Some((value, bytes.length())))
+  }
+}
+
+test "decode_sint32 truncated" {
+  let bytes = b"\x80"
+  let r = @moonproto.decode_sint32(bytes, 0)
+  assert_eq(r, None)
+}
+
+test "decode_sint64 truncated" {
+  let bytes = b"\x80"
+  let r = @moonproto.decode_sint64(bytes, 0)
+  assert_eq(r, None)
+}
+
 test "encode_varint then decode_varint roundtrip" {
   for value in [0UL, 1UL, 127UL, 128UL, 300UL, 65535UL, 4294967295UL, 18446744073709551615UL] {
     let buf = Buffer()
